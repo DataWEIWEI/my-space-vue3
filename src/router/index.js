@@ -9,26 +9,26 @@ import UserProfileView from '../views/UserProfileView.vue'
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
   {
-    path: '/UserList',
+    path: '/userList',
     name: 'UserListView',
     component: UserListView
   },
   {
-    path: '/UserProfile',
+    path: '/userProfile',
     name: 'UserProfileView',
     component: UserProfileView
   },
   {
-    path: '/Login',
+    path: '/login',
     name: 'LoginView',
     component: LoginView
   },
   {
-    path: '/Register',
+    path: '/register',
     name: 'RegisterView',
     component: RegisterView
   },
