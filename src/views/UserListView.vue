@@ -1,17 +1,17 @@
 <template>
-  <ContentBase>
-    Home
-  </ContentBase>
+    <ContentBase>
+        UserList
+    </ContentBase>
 </template>
 
 <script>
 import ContentBase from '@/components/ContentBase.vue';
 
 export default {
-  name: 'HomeView',
-  components: {
-    ContentBase,
-  }
+    name: 'UserView',
+    components: {
+        ContentBase,
+    }
 }
 </script>
 
