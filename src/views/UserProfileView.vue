@@ -1,18 +1,25 @@
 <template>
-    <ContentBase>
-        User Profile
-    </ContentBase>
+  <ContentBase>
+    <div class="row">
+      <div class="col-3">
+        <UserProfileInfo/>
+      </div>
+      <div class="col-9">Post List</div>
+    </div>
+  </ContentBase>
 </template>
 
 <script>
-import ContentBase from '@/components/ContentBase.vue';
+import ContentBase from "@/components/ContentBase.vue";
+import UserProfileInfo from "@/components/UserProfileInfo.vue";
 
 export default {
-    name: 'UserProfileView',
-    components: {
-        ContentBase,
-    }
-}
+  name: "UserProfileView",
+  components: {
+    ContentBase,
+    UserProfileInfo,
+  },
+};
 </script>
 
 <style scoped></style>
