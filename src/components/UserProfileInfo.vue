@@ -6,10 +6,13 @@
           <img class="img-fluid" src="../assets/profilePhoto.png" alt="" />
         </div>
         <div class="col-9">
-          <div class="username">DATA_WEI</div>
-          <div class="fans">fellow: 123</div>
-          <button type="button" id="follow" class="btn btn-success btn-small">
+          <div class="username">{{ fullname }}</div>
+          <div class="fans">fellow: {{ user.followerCount }}</div>
+          <button @click="follow" v-if="!user.is_followed" type="button" id="follow" class="btn btn-success btn-small">
             +follow
+          </button>
+          <button @click="follow" v-if="user.is_followed" type="button" id="follow" class="btn btn-success btn-small">
+            followed
           </button>
         </div>
       </div>
@@ -18,8 +21,35 @@
 </template>
 
 <script>
+import { computed } from 'vue';
+
 export default {
   name: "UserProfileInfo",
+  props: {
+    user: {
+      type: Object,
+      required: true,
+    }
+  },
+
+  setup(props, context) {
+    const fullname = computed(() => props.user.lastname + ' ' + props.user.firstname);
+
+    const follow = () => {
+      context.emit('follow');
+    }
+
+    const unfollow = () => {
+      context.emit('unfollow');
+    }
+
+    return {
+      fullname,
+      follow,
+      unfollow,
+    }
+  }
+  
 };
 </script>
 
@@ -30,7 +60,7 @@ img {
 
 #follow {
   padding: 2px 4px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .username {
