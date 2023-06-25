@@ -11,8 +11,8 @@
           <button @click="follow" v-if="!user.is_followed" type="button" id="follow" class="btn btn-success btn-small">
             +follow
           </button>
-          <button @click="follow" v-if="user.is_followed" type="button" id="follow" class="btn btn-success btn-small">
-            followed
+          <button @click="unfollow" v-if="user.is_followed" type="button" id="follow" class="btn btn-success btn-small">
+            unfollow
           </button>
         </div>
       </div>
