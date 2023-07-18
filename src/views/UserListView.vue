@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-1">
-            <img class="img-fluid" :src="user.photo" alt="" />
+            <img class="img-fluid img-field" :src="user.photo" alt="" />
           </div>
           <div class="col-11">
             <div class="username">{{ user.username }}</div>
@@ -87,5 +87,11 @@ img {
 .card:hover {
   box-shadow: 2px 2px 10px lightblue;
   transition: 300ms;
+}
+
+.img-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 </style>

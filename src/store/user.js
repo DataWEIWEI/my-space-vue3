@@ -60,7 +60,7 @@ const ModuleUser = {
                                 context.commit('updateAccess', resp.access)
                             }
                         })
-                    }, 4.5 * 60 * 1000);
+                    }, 4.5 * 60 *1000);
 
                     $.ajax({
                         url: 'https://app165.acapp.acwing.com.cn/myspace/getinfo/',
