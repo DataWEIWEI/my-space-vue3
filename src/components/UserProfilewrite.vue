@@ -21,13 +21,32 @@
 
 <script>
 import { ref } from "vue";
+import { useStore } from "vuex";
+import $ from 'jquery'
 
 export default {
   name: "UserProfileWrite",
   setup(props, context) {
     let content = ref("");
-
+    const store = useStore();
     const post_a_post = () => {
+      $.ajax({
+        url: 'https://app165.acapp.acwing.com.cn/myspace/post/',
+        type: 'POST',
+        data: {
+          content: content.value,
+        },
+        headers: {
+          'Authorization': 'Bearer ' + store.state.user.access,
+        },
+        success(resp) {
+          if (resp == 'success') {
+            context.emit('post_a_post', content.value);
+            content.value = '';
+          }
+        }
+      })
+
       if (!content.value) return;
       context.emit("post_a_post", content.value);
       content.value = ""; // clear the textarea field
