@@ -35,7 +35,6 @@ export default {
     const store = useStore();
     const route = useRoute();
     const userId = parseInt(route.params.userId);
-    console.log(route.params.userId);
 
     const user = reactive({
     });
@@ -103,7 +102,6 @@ export default {
       posts.count = posts.posts.lenght;
     }
 
-    console.log(userId, store.state.user.id)
     const is_me = computed(() => userId === store.state.user.id);
 
     return {
