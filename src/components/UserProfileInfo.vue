@@ -6,7 +6,7 @@
           <img class="img-fluid " :src="user.photo" alt="" />
         </div>
         <div class="col-9">
-          <div class="username">{{ username }}</div>
+          <div class="username">{{ user.username }}</div>
           <div class="fans">fellow: {{ user.followerCount }}</div>
           <button @click="follow" v-if="!user.is_followed" type="button" id="follow" class="btn btn-success btn-small">
             +follow

@@ -6,7 +6,7 @@
         <UserProfileWrite v-if="is_me" @post_a_post="post_a_post" />
       </div>
       <div class="col-9">
-        <UserProfilePosts :posts="posts" />
+        <UserProfilePosts :user="user" :posts="posts" @delete_a_post="delete_a_post" />
       </div>
     </div>
   </ContentBase>
@@ -98,6 +98,11 @@ export default {
       });
     };
 
+    const delete_a_post = (post_id) => {
+      posts.posts = posts.posts.filter(post => post.id !== post_id);
+      posts.count = posts.posts.lenght;
+    }
+
     console.log(userId, store.state.user.id)
     const is_me = computed(() => userId === store.state.user.id);
 
@@ -109,6 +114,7 @@ export default {
       post_a_post,
       userId,
       is_me,
+      delete_a_post,
     };
   },
 };
